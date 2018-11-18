@@ -1,10 +1,8 @@
-# TxBits
-
-[![Build Status](https://travis-ci.org/txbits/txbits.svg?branch=master)](https://travis-ci.org/txbits/txbits)
+# Flame.Exchange
 
 An open source Bitcoin and crypto currency exchange
 
-https://www.txbits.org
+https://flame.exchange
 
 ## Dev environment setup TL;DR
 

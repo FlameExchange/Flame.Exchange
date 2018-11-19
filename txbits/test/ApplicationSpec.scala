@@ -1,4 +1,4 @@
-// TxBits - An open source Bitcoin and crypto currency exchange
+// Flame.Exchange - An open source Bitcoin and crypto currency exchange
 // Copyright (C) 2014-2015  Viktor Stanchev & Kirk Zathey
 //
 // This program is free software: you can redistribute it and/or modify
@@ -42,7 +42,7 @@ class ApplicationSpec extends Specification {
 
       status(home) must equalTo(OK)
       contentType(home) must beSome.which(_ == "text/html")
-      contentAsString(home) must contain("TxBits")
+      contentAsString(home) must contain("Flame.Exchange")
     }
   }
 }

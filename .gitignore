@@ -22,4 +22,4 @@ project/#Build.scala#
 .idea_modules/
 .history
 .workspace
-
+*.conf

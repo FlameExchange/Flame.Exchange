@@ -128,7 +128,7 @@ class UserModel(val db: String = "default") {
 
   def totpLoginStep2(email: String, totpHash: String, totpToken: String, browserHeaders: String, ip: String): Option[SocialUser] = DB.withConnection(db) { implicit c =>
     SQL"""
-    select * from totp_login_step2($email, $totpHash, ${safeToInt(totpToken)}, $browserHeaders, inet($ip))
+    select * from totp_login_step2($email, $totpHash, ${safeToInt(totpToken)}, $browserHeaders)
     """().map(row => (row[Option[Long]]("id"),
       row[Option[String]]("email"),
       row[Option[Int]]("verification"),
@@ -152,7 +152,7 @@ class UserModel(val db: String = "default") {
 
   def findUserByEmailAndPassword(email: String, password: String, browserHeaders: String, ip: String): Option[SocialUser] = DB.withConnection(db) { implicit c =>
     SQL"""
-    select * from find_user_by_email_and_password($email, $password, $browserHeaders, inet($ip))
+    select * from find_user_by_email_and_password($email, $password, $browserHeaders)
     """().map(row => (row[Option[Long]]("id"),
       row[Option[String]]("email"),
       row[Option[Int]]("verification"),

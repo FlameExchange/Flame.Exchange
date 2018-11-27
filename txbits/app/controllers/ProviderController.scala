@@ -60,7 +60,7 @@ class ProviderController @Inject() (val messagesApi: MessagesApi) extends Contro
         val authenticator = SecureSocial.authenticatorFromRequest(request)
         if (authenticator.isDefined) {
           if (globals.userModel.userHasTotp(authenticator.get.email)) {
-            val user = globals.userModel.totpLoginStep2(authenticator.get.email, authenticator.get.totpSecret.get, tfaToken, models.LogModel.headersFromRequest(request), models.LogModel.ipFromRequest(request))
+            val user = globals.userModel.totpLoginStep2(authenticator.get.email, authenticator.get.totpSecret.get, tfaToken, models.LogModel.headersFromRequest(request))
             if (user.isDefined) {
               Authenticator.save(authenticator.get.complete2fa(user.get.id))
               Redirect(toUrl(request2session)).withSession(request2session - SecureSocial.OriginalUrlKey)
@@ -94,9 +94,9 @@ class ProviderController @Inject() (val messagesApi: MessagesApi) extends Contro
           var totp_hash: Option[String] = None
           // check for 2FA
           if (globals.userModel.userHasTotp(email)) {
-            totp_hash = globals.userModel.totpLoginStep1(email, credentials._2, models.LogModel.headersFromRequest(request), models.LogModel.ipFromRequest(request))
+            totp_hash = globals.userModel.totpLoginStep1(email, credentials._2, models.LogModel.headersFromRequest(request))
           } else {
-            user = globals.userModel.findUserByEmailAndPassword(email, credentials._2, models.LogModel.headersFromRequest(request), models.LogModel.ipFromRequest(request))
+            user = globals.userModel.findUserByEmailAndPassword(email, credentials._2, models.LogModel.headersFromRequest(request))
           }
           if (totp_hash.isDefined) {
             // create session

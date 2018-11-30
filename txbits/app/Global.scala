@@ -108,10 +108,7 @@ package object globals {
       insert into users(id, email) values (0, '');
       insert into balances (user_id, currency) select 0, currency from currencies;
 
-      select create_user('me@viktorstanchev.com', 'password', true, null, 'en');
-      select create_user('a@a.com', 'qwerty123', false, null, 'en');
-
-      update balances set balance = 1000 where user_id in (select id from users where email in ('me@viktorstanchev.com', 'a@a.com')) and currency in ('USD', 'CAD');
+      
       commit;
       """.execute()
       })

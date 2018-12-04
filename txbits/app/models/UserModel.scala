@@ -150,6 +150,9 @@ class UserModel(val db: String = "default") {
     ).head
   }
 
+
+var langauge1 = "en";
+
   def findUserByEmailAndPassword(email: String, password: String, browserHeaders: String, ip: String): Option[SocialUser] = DB.withConnection(db) { implicit c =>
     SQL"""
     select * from find_user_by_email_and_password($email, $password, $browserHeaders, inet($ip))
@@ -165,7 +168,7 @@ class UserModel(val db: String = "default") {
           Some(on_mailing_list: Boolean),
           Some(tfa_enabled: Boolean),
           pgp: Option[String]) =>
-          Some(SocialUser(id, email, verification, on_mailing_list, tfa_enabled, pgp))
+          Some(SocialUser(id, email, verification, langauge1, on_mailing_list, tfa_enabled, pgp))
         case _ =>
           None
       }

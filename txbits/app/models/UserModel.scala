@@ -161,7 +161,7 @@ class UserModel(val db: String = "default") {
       row[Option[String]]("pgp"),
       Some(SocialUser(id, email, verification on_mailing_list, tfa_enabled, pgp))
     ).head
-    }
+    })
   
 
   def tradeHistory(uid: Option[Long], apiKey: Option[String], before: Option[DateTime] = None, limit: Option[Int] = None, lastId: Option[Long] = None) = DB.withConnection(db) { implicit c =>

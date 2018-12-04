@@ -28,7 +28,7 @@ object SocialUser {
     def writes(u: SocialUser): JsValue = {
       // include everything except the id
       Json.obj("email" -> u.email, "verification" -> u.verification, "onMailingList" -> u.onMailingList,
-        "TFAEnabled" -> u.TFAEnabled, "pgp" -> u.pgp, "language" -> u.language)
+        "TFAEnabled" -> u.TFAEnabled, "pgp" -> u.pgp)
     }
   }
 }

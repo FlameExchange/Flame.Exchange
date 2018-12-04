@@ -159,14 +159,14 @@ class UserModel(val db: String = "default") {
       row[Option[Boolean]]("on_mailing_list"),
       row[Option[Boolean]]("tfa_enabled"),
       row[Option[String]]("pgp"),
-      row[String]("language")) match {
+      row[String]("language1")) match {
         case (Some(id: Long),
           Some(email: String),
           Some(verification: Int),
           Some(on_mailing_list: Boolean),
           Some(tfa_enabled: Boolean),
           pgp: Option[String],
-          language: String) =>
+          language1: String) =>
           Some(SocialUser(id, email, verification, language, on_mailing_list, tfa_enabled, pgp))
         case _ =>
           None

@@ -1,4 +1,4 @@
-// Flame.Exchange - An open source Bitcoin and crypto currency exchange
+// TxBits - An open source Bitcoin and crypto currency exchange
 // Copyright (C) 2014-2015  Viktor Stanchev & Kirk Zathey
 //
 // This program is free software: you can redistribute it and/or modify

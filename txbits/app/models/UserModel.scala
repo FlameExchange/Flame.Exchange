@@ -1,4 +1,4 @@
-// Flame.Exchange - An open source Bitcoin and crypto currency exchange
+// TxBits - An open source Bitcoin and crypto currency exchange
 // Copyright (C) 2014-2015  Viktor Stanchev & Kirk Zathey
 //
 // This program is free software: you can redistribute it and/or modify
@@ -159,10 +159,20 @@ class UserModel(val db: String = "default") {
       row[Option[Boolean]]("on_mailing_list"),
       row[Option[Boolean]]("tfa_enabled"),
       row[Option[String]]("pgp"),
-      Some(SocialUser(id, email, verification on_mailing_list, tfa_enabled, pgp))
+      row[String]("language")) match {
+        case (Some(id: Long),
+          Some(email: String),
+          Some(verification: Int),
+          Some(on_mailing_list: Boolean),
+          Some(tfa_enabled: Boolean),
+          pgp: Option[String],
+          language: String) =>
+          Some(SocialUser(id, email, verification, language, on_mailing_list, tfa_enabled, pgp))
+        case _ =>
+          None
+      }
     ).head
-    })
-  
+  }
 
   def tradeHistory(uid: Option[Long], apiKey: Option[String], before: Option[DateTime] = None, limit: Option[Int] = None, lastId: Option[Long] = None) = DB.withConnection(db) { implicit c =>
     SQL"""

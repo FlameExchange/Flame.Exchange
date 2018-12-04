@@ -151,7 +151,6 @@ class UserModel(val db: String = "default") {
   }
 
 
-var langauge1 = "en";
 
   def findUserByEmailAndPassword(email: String, password: String, browserHeaders: String, ip: String): Option[SocialUser] = DB.withConnection(db) { implicit c =>
     SQL"""
@@ -168,7 +167,7 @@ var langauge1 = "en";
           Some(on_mailing_list: Boolean),
           Some(tfa_enabled: Boolean),
           pgp: Option[String]) =>
-          Some(SocialUser(id, email, verification, langauge1, on_mailing_list, tfa_enabled, pgp))
+          Some(SocialUser(id, email, verification, on_mailing_list, tfa_enabled, pgp))
         case _ =>
           None
       }

@@ -158,8 +158,7 @@ class UserModel(val db: String = "default") {
       row[Option[Int]]("verification"),
       row[Option[Boolean]]("on_mailing_list"),
       row[Option[Boolean]]("tfa_enabled"),
-      row[Option[String]]("pgp"),
-      row[String]("language")) match {
+      row[Option[String]]("pgp")) match {
         case (Some(id: Long),
           Some(email: String),
           Some(verification: Int),

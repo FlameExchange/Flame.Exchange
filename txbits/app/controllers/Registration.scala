@@ -104,7 +104,7 @@ class Registration @Inject() (val messagesApi: MessagesApi) extends Controller w
         },
         form => {
           // there seems to be no good way to get the language, so we do it manually
-          val lang = request.cookies.get(messagesApi.langCookieName).map(cookie => Lang.get(cookie.value).getOrElse(Lang.defaultLang)).getOrElse(Lang.defaultLang)
+          val lang = "en"
           globals.userModel.trustedActionStart(form.email, isSignup = true, lang.code)
           Redirect(onHandleStartSignUpGoTo).flashing(Success -> Messages(ThankYouCheckEmail), Email -> form.email)
         }

@@ -167,7 +167,7 @@ class UserModel(val db: String = "default") {
           Some(tfa_enabled: Boolean),
           pgp: Option[String],
           language1: String) =>
-          Some(SocialUser(id, email, verification, on_mailing_list, tfa_enabled, pgp))
+          Some(SocialUser(id, email, verification, language1, on_mailing_list, tfa_enabled, pgp))
         case _ =>
           None
       }

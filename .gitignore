@@ -23,4 +23,5 @@ project/#Build.scala#
 .history
 .workspace
 *.conf
+.conf
 txbits/conf/common/securesocial.conf

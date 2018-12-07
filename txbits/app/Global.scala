@@ -53,6 +53,7 @@ package object globals {
       delete from markets;
       delete from dw_fees;
       delete from withdraw_limits;
+      delete from trade_fees;
       
 
       select currency_insert('BTC',10);

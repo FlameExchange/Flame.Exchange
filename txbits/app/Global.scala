@@ -47,6 +47,12 @@ package object globals {
         SQL"""
       begin;
       
+      delete from currencies_crypto;
+      delete from wallets_crypto;
+      delete from currencies;
+      delete from markets;
+      delete from dw_fees;
+      delete from withdraw_limits;
       
 
       select currency_insert('BTC',10);

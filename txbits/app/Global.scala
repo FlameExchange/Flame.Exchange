@@ -60,17 +60,14 @@ package object globals {
       select currency_insert('LTC',20);
       select currency_insert('USD',30);
       select currency_insert('CAD',40);
-      select currency_insert('PPC',50);
 
       insert into markets(base,counter, limit_min, position) values ('BTC','USD',0.0003,10);
       insert into markets(base,counter, limit_min, position) values ('LTC','USD',0.05,20);
       insert into markets(base,counter, limit_min, position) values ('LTC','BTC',0.05,30);
       insert into markets(base,counter, limit_min, position) values ('USD','CAD',1.00,40);
-      insert into markets(base,counter, limit_min, position) values ('BTC','PPC',0.0003,50);
 
       insert into dw_fees(currency, method, deposit_constant, deposit_linear, withdraw_constant, withdraw_linear) values ('BTC', 'blockchain', 0.000, 0.000, 0.001, 0.000);
       insert into dw_fees(currency, method, deposit_constant, deposit_linear, withdraw_constant, withdraw_linear) values ('LTC', 'blockchain', 0.000, 0.000, 0.010, 0.000);
-      insert into dw_fees(currency, method, deposit_constant, deposit_linear, withdraw_constant, withdraw_linear) values ('PPC', 'blockchain', 0.000, 0.000, 0.010, 0.000);
       insert into dw_fees(currency, method, deposit_constant, deposit_linear, withdraw_constant, withdraw_linear) values ('USD', 'wire', 0.000, 0.000, 0.000, 0.000);
       insert into dw_fees(currency, method, deposit_constant, deposit_linear, withdraw_constant, withdraw_linear) values ('CAD', 'wire', 0.000, 0.000, 0.000, 0.000);
 
@@ -80,15 +77,12 @@ package object globals {
       insert into withdrawal_limits(currency, limit_min, limit_max) values ('LTC', 0.05, 100);
       insert into withdrawal_limits(currency, limit_min, limit_max) values ('USD', 1, 10000);
       insert into withdrawal_limits(currency, limit_min, limit_max) values ('CAD', 1, 10000);
-      insert into withdrawal_limits(currency, limit_min, limit_max) values ('PPC', 1, 10000);
 
       insert into currencies_crypto(currency) values('BTC');
       insert into currencies_crypto(currency) values('LTC');
-      insert into currencies_crypto(currency) values('PPC');
 
       insert into wallets_crypto(currency, last_block_read, balance_min, balance_warn, balance_target, balance_max) values('LTC', 42, 0, 0, 1000, 10000);
       insert into wallets_crypto(currency, last_block_read, balance_min, balance_warn, balance_target, balance_max) values('BTC', 42, 0, 0, 100, 1000);
-      insert into wallets_crypto(currency, last_block_read, balance_min, balance_warn, balance_target, balance_max) values('PPC', 42, 0, 0, 1000, 100000);
 
       insert into users(id, email) values (0, '');
       insert into balances (user_id, currency) select 0, currency from currencies;

@@ -46,6 +46,10 @@ package object globals {
       DB.withConnection(globals.masterDB)({ implicit c =>
         SQL"""
         begin;
+      select currency_insert('BTC',10);
+      select currency_insert('LTC',20);
+      select currency_insert('USD',30);
+      select currency_insert('CAD',40);
       
       commit;
       """.execute()

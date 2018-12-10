@@ -47,13 +47,6 @@ package object globals {
         SQL"""
       begin;
       
-      delete from currencies_crypto;
-      delete from wallets_crypto;
-      delete from currencies;
-      delete from markets;
-      delete from dw_fees;
-      delete from withdraw_limits;
-      delete from trade_fees;
       
       select currency_insert('BTC',10);
       select currency_insert('LTC',20);
@@ -95,6 +88,8 @@ package object globals {
   } catch {
     // XXX: any kind of error in the SQL above will cause this cryptic exception:
     // org.postgresql.util.PSQLException: Cannot change transaction read-only property in the middle of a transaction.
+    case error: Throwable => Logger.error(error.toString)
+    case error: Throwable => Logger.error(error.toString)
     case error: Throwable => Logger.error(error.toString)
   }
 

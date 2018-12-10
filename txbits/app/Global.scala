@@ -46,14 +46,6 @@ package object globals {
       DB.withConnection(globals.masterDB)({ implicit c =>
         SQL"""
         begin;
-
-      delete from dw_fees;
-      delete from trade_fees;
-      delete from currencies_crypto;
-      delete from wallets_crypto;
-      delete from markets;
-      delete from withdrawal_limits;
-      delete from currencies;
       
       select currency_insert('BTC',10);
       select currency_insert('LTC',20);

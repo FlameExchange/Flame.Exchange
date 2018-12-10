@@ -45,8 +45,37 @@ package object globals {
     if (Play.current.configuration.getBoolean("meta.devdb").getOrElse(false)) {
       DB.withConnection(globals.masterDB)({ implicit c =>
         SQL"""
-      begin;
-      
+        begin;
+      delete from deposits_crypto;
+      delete from deposits_other;
+      delete from deposits;
+      delete from users_passwords;
+      delete from users_api_keys;
+      delete from users_tfa_secrets;
+      delete from users_backup_otps;
+      delete from users_addresses;
+      delete from dw_fees;
+      delete from trade_fees;
+      delete from totp_tokens_blacklist;
+      delete from withdrawals_other;
+      delete from withdrawals_crypto;
+      delete from withdrawals_crypto_tx_mutated;
+      delete from withdrawals_crypto_tx_cold_storage;
+      delete from withdrawals_crypto_tx;
+      delete from withdrawals;
+      delete from currencies_crypto;
+      delete from wallets_crypto;
+      delete from balances;
+      delete from matches;
+      delete from stats_30_min;
+      delete from orders;
+      delete from markets;
+      delete from withdrawal_limits;
+      delete from currencies;
+      delete from event_log;
+      delete from tokens;
+      delete from trusted_action_requests;
+      delete from users;
       
       select currency_insert('BTC',10);
       select currency_insert('LTC',20);
@@ -76,10 +105,11 @@ package object globals {
       insert into wallets_crypto(currency, last_block_read, balance_min, balance_warn, balance_target, balance_max) values('LTC', 42, 0, 0, 1000, 10000);
       insert into wallets_crypto(currency, last_block_read, balance_min, balance_warn, balance_target, balance_max) values('BTC', 42, 0, 0, 100, 1000);
       
-      
       insert into users(id, email) values (0, '');
       insert into balances (user_id, currency) select 0, currency from currencies;
-
+      select create_user('me@viktorstanchev.com', 'password', true, null, 'en');
+      select create_user('a@a.com', 'qwerty123', false, null, 'en');
+      update balances set balance = 1000 where user_id in (select id from users where email in ('me@viktorstanchev.com', 'a@a.com')) and currency in ('USD', 'CAD');
       
       commit;
       """.execute()
@@ -88,8 +118,6 @@ package object globals {
   } catch {
     // XXX: any kind of error in the SQL above will cause this cryptic exception:
     // org.postgresql.util.PSQLException: Cannot change transaction read-only property in the middle of a transaction.
-    case error: Throwable => Logger.error(error.toString)
-    case error: Throwable => Logger.error(error.toString)
     case error: Throwable => Logger.error(error.toString)
   }
 

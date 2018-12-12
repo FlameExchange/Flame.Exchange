@@ -105,7 +105,7 @@ object CryptoAddress {
     id = ID_MAINNET
     port = 11888
     addressHeader = 55
-    tp2shHeader = 55
+    p2shHeader = 55
     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
 
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET

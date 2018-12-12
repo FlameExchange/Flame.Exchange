@@ -302,7 +302,7 @@ bigtickers.Vol=Vol
 
 # zxvbn
 
-zxvbn.instant=instant (A monkey could guess this.)
+zxvbn.instant=instant(A monkey could guess this.)
 zxvbn.minute=minute (I worry about you.)
 zxvbn.minute1=minutes (I've seen dogs with better passwords!)
 zxvbn.minutes=minutes (...)

@@ -34,33 +34,7 @@ class EngineModel(val db: String = "default") {
 
   def clean() = DB.withConnection(db)(implicit c =>
     SQL"""
-      delete from deposits_crypto;
-      delete from deposits_other;
-      delete from deposits;
-      delete from users_passwords;
-      delete from users_tfa_secrets;
-      delete from users_backup_otps;
-      delete from users_addresses;
-      delete from dw_fees;
-      delete from trade_fees;
-      delete from totp_tokens_blacklist;
-      delete from withdrawals_other;
-      delete from withdrawals_crypto;
-      delete from withdrawals_crypto_tx_mutated;
-      delete from withdrawals_crypto_tx_cold_storage;
-      delete from withdrawals_crypto_tx;
-      delete from withdrawals;
-      delete from currencies_crypto;
-      delete from wallets_crypto;
-      delete from balances;
-      delete from matches;
-      delete from stats_30_min;
-      delete from orders;
-      delete from markets;
-      delete from withdrawal_limits;
-      delete from currencies;
-      delete from event_log;
-      delete from users;
+    
       """.execute()
   )
 

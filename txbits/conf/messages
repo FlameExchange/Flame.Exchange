@@ -199,7 +199,7 @@ account.fakemoney.subtract=Subtract Funds
 # Login page
 auth.login.title=Log In
 auth.login.accessDenied=You denied access to your account. Please grant it to log in.
-auth.login.errorLoggingIn=An error occurred while logging you in. Please try again.
+auth.login.errorLoggingIn=An error occurred while logging you in. Please try again. (Try creating an account)
 auth.login.here=here
 auth.login.invalidCredentials=The credentials you entered are not valid
 
@@ -271,7 +271,7 @@ mails.passwordResetOk.body=Your password was updated.  Please log in using your 
 
 messages.api.error.invalidpair=Invalid pair
 messages.api.error.failedtoparseinput=Failed to parse input.
-messages.api.error.nonsufficientfunds=Non-sufficient funds.
+messages.api.error.nonsufficientfunds=Non enough funds. (Deposit using the Manage Funds page)
 messages.api.error.amountmustbeatleast=Amount must be at least %s.
 messages.api.error.tradingsuspendedon=Trading suspended on %s/%s.
 messages.api.error.thepriceandamountmustbepositive=The price and amount must be positive.

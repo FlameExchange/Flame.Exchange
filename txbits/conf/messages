@@ -302,25 +302,25 @@ bigtickers.Vol=Vol
 
 # zxvbn
 
-zxvbn.instant=instant
-zxvbn.minute=minute
-zxvbn.minute1=minutes
-zxvbn.minutes=minutes
-zxvbn.hour=hour
-zxvbn.hour1=hours
-zxvbn.hours=hours
-zxvbn.day=day
-zxvbn.day1=days
-zxvbn.days=days
-zxvbn.month=month
-zxvbn.month1=months
-zxvbn.months=months
-zxvbn.year=year
-zxvbn.year1=years
-zxvbn.years=years
-zxvbn.centurie=centurie
-zxvbn.centurie1=centuries
-zxvbn.centuries=centuries
+zxvbn.instant=instant (A monkey could guess this.)
+zxvbn.minute=minute (I worry about you.)
+zxvbn.minute1=minutes (I've seen dogs with better passwords!)
+zxvbn.minutes=minutes (...)
+zxvbn.hour=hour (One whole hour to crack this. One whole hour)
+zxvbn.hour1=hours (I'm mean because I care!)
+zxvbn.hours=hours (Please, try harder)
+zxvbn.day=day (You're starting to understand.)
+zxvbn.day1=days (I would give you an A for effort)
+zxvbn.days=days (You're half way there, I'd say.)
+zxvbn.month=month (Close, but no cigar.)
+zxvbn.month1=months (You're getting there... kinda.)
+zxvbn.months=months (Warmer, you're getting warmer.)
+zxvbn.year=year (So close. I'm mean because I care.)
+zxvbn.year1=years (It would take a computer a whole year to crack this! Still, that's not much.)
+zxvbn.years=years (Just a little more....)
+zxvbn.centurie=centurie (I knew you could get there in the end.)
+zxvbn.centurie1=centuries (I knew you could get there in the end.)
+zxvbn.centuries=centuries (I knew you could get there in the end.)
 
 # Meta errors
 

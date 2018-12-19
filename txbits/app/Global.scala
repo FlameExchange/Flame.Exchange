@@ -46,7 +46,6 @@ package object globals {
       DB.withConnection(globals.masterDB)({ implicit c =>
         SQL"""
         begin;
-      select currency_insert('PPC',50);
       
       commit;
       """.execute()
@@ -81,8 +80,7 @@ package object globals {
   val currencies = List(
     "bitcoin" -> Wallet.CryptoCurrency.BTC,
     "litecoin" -> Wallet.CryptoCurrency.LTC,
-    "peercoin" -> Wallet.CryptoCurrency.PPC,
-    "primecoin" -> Wallet.CryptoCurrency.XPM)
+    "rebooted" -> Wallet.CryptoCurrency.BOOT)
 
   val enabledCurrencies = currencies.filter(c =>
     Play.current.configuration.getBoolean("wallet.%s.enabled".format(c._1)).getOrElse(false))

@@ -399,9 +399,7 @@ object Wallet {
     type CryptoCurrency = Value
     val BTC = Value(0)
     val LTC = Value(1)
-    val PPC = Value(2)
-    val XPM = Value(3)
-    val PIRATE = Value(4)
+    val BOOT = Value(2)
   }
   case class WalletParams(
     checkDelay: FiniteDuration,

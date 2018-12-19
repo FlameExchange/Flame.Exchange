@@ -41,9 +41,9 @@ object CryptoAddress {
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
   }
 
-  private val LitecoinTestnet = new NetworkParameters {
+  private val RebootedTestnet = new NetworkParameters {
     id = ID_TESTNET
-    port = 19333
+    port = 15858
     addressHeader = 111
     p2shHeader = 196
     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
@@ -51,61 +51,11 @@ object CryptoAddress {
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_TESTNET
   }
 
-  private val Litecoin = new NetworkParameters {
+  private val Rebooted = new NetworkParameters {
     id = ID_MAINNET
-    port = 9333
-    addressHeader = 48
+    port = 5858
+    addressHeader = 0
     p2shHeader = 5
-    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
-
-    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
-  }
-
-  private val PeercoinTestnet = new NetworkParameters {
-    id = ID_TESTNET
-    port = 9903
-    addressHeader = 111
-    p2shHeader = 196
-    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
-
-    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_TESTNET
-  }
-
-  private val Peercoin = new NetworkParameters {
-    id = ID_MAINNET
-    port = 9901
-    addressHeader = 55
-    p2shHeader = 117
-    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
-
-    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
-  }
-
-  private val PrimecoinTestnet = new NetworkParameters {
-    id = ID_TESTNET
-    port = 9913
-    addressHeader = 111
-    p2shHeader = 196
-    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
-
-    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_TESTNET
-  }
-
-  private val Primecoin = new NetworkParameters {
-    id = ID_MAINNET
-    port = 9911
-    addressHeader = 23
-    p2shHeader = 83
-    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
-
-    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
-  }
-  
-    private val Piratecash = new NetworkParameters {
-    id = ID_MAINNET
-    port = 11888
-    addressHeader = 55
-    p2shHeader = 55
     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
 
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
@@ -117,11 +67,8 @@ object CryptoAddress {
       case "BTC" => Bitcoin
       case "LTC" if testnet => LitecoinTestnet
       case "LTC" => Litecoin
-      case "PPC" if testnet => PeercoinTestnet
-      case "PPC" => Peercoin
-      case "XPM" if testnet => PrimecoinTestnet
-      case "XPM" => Primecoin
-      case "PIRATE" => Piratecash
+      case "BOOT" if testnet => RebootedTestnet
+      case "BOOT" => Rebooted
       case _ =>
         return false
     }

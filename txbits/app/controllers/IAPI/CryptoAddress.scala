@@ -80,6 +80,16 @@ object CryptoAddress {
 
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
   }
+  
+  private val Piratecash = new NetworkParameters {	
+     id = ID_MAINNET	
+     port = 11888	
+     addressHeader = 55	
+     p2shHeader = 55	
+     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
+ 
+      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
+   }
 
   def isValid(address: String, currency: String, testnet: Boolean): Boolean = {
     val network = currency match {
@@ -89,6 +99,7 @@ object CryptoAddress {
       case "LTC" => Litecoin
       case "BOOT" if testnet => RebootedTestnet
       case "BOOT" => Rebooted
+      case "PIRATE" => Piratecash
       case _ =>
         return false
     }

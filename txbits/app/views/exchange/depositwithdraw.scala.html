@@ -245,7 +245,17 @@
         }
     </script>
         
-    <script id="dw-ppc-template" type="text/x-handlebars-template">
+    <script id="dw-boot-template" type="text/x-handlebars-template">
+        @drawer(collapsed = true) {
+            {{> crypto-deposit}}
+            {{> pending-d-crypto}}
+        } {
+            {{> crypto-withdraw-form}}
+            {{> pending-w-crypto}}
+        }
+    </script>
+        
+    <script id="dw-pirate-template" type="text/x-handlebars-template">
         @drawer(collapsed = true) {
             {{> crypto-deposit}}
             {{> pending-d-crypto}}

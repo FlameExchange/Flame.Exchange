@@ -80,6 +80,7 @@ package object globals {
   val currencies = List(
     "bitcoin" -> Wallet.CryptoCurrency.BTC,
     "litecoin" -> Wallet.CryptoCurrency.LTC,
+    "piratecash" -> Wallet.CryptoCurrency.PIRATE,
     "rebooted" -> Wallet.CryptoCurrency.BOOT)
 
   val enabledCurrencies = currencies.filter(c =>

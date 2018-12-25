@@ -110,7 +110,7 @@ object CryptoAddress {
       case "BOOT" if testnet => RebootedTestnet
       case "BOOT" => Rebooted
       case "PIRATE" => Piratecash
-      case "EAZY" => Eazycoin
+      case "EZY" => Eazycoin
       case _ =>
         return false
     }

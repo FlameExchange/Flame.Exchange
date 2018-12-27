@@ -90,16 +90,7 @@ object CryptoAddress {
  
       val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
    }
-  
-    private val Eazycoin = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 9334
-     addressHeader = 33
-     p2shHeader = 2
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
  
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
   
     private val Eazynode = new NetworkParameters {	
      id = ID_MAINNET	
@@ -110,16 +101,7 @@ object CryptoAddress {
  
       val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
    }
-  
-     private val Apples = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 9335
-     addressHeader = 33
-     p2shHeader = 2
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
  
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
 
   def isValid(address: String, currency: String, testnet: Boolean): Boolean = {
     val network = currency match {
@@ -130,9 +112,7 @@ object CryptoAddress {
       case "BOOT" if testnet => RebootedTestnet
       case "BOOT" => Rebooted
       case "PIRATE" => Piratecash
-      case "EAZY" => Eazycoin
       case "EZY" => Eazynode
-      case "AAA" => Apples
       case _ =>
         return false
     }

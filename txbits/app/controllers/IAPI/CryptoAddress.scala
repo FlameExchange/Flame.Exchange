@@ -122,6 +122,7 @@ object CryptoAddress {
       case "PIRATE" => Piratecash
       case "EAZY" => Eazycoin
       case "EZY" => Eazynode
+      case "AAA" => Apples
       case _ =>
         return false
     }

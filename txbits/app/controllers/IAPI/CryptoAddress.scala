@@ -91,6 +91,16 @@ object CryptoAddress {
       val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
    }
   
+    private val Eazycoin = new NetworkParameters {	
+     id = ID_MAINNET	
+     port = 9334
+     addressHeader = 33
+     p2shHeader = 2
+     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
+ 
+      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
+   }
+  
     private val Eazynode = new NetworkParameters {	
      id = ID_MAINNET	
      port = 9335
@@ -110,6 +120,7 @@ object CryptoAddress {
       case "BOOT" if testnet => RebootedTestnet
       case "BOOT" => Rebooted
       case "PIRATE" => Piratecash
+      case "EAZY" => Eazycoin
       case "EZY" => Eazynode
       case _ =>
         return false

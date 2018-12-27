@@ -93,7 +93,7 @@ object CryptoAddress {
   
     private val Eazycoin = new NetworkParameters {	
      id = ID_MAINNET	
-     port = 52320
+     port = 9335
      addressHeader = 33
      p2shHeader = 2
      acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	

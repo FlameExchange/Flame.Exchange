@@ -12,110 +12,548 @@
 
 
 @content._chrome("", scripts, loggedIn = loggedIn) {
-    <link rel="stylesheet" href="https://cdn.flame.exchange/css/style.css">
-<!-- Hero unit -->
-<div class="hero">
-    <div class="hero__overlay hero__overlay--gradient"></div>
-    <div class="hero__mask"></div>
-    <div class="hero__inner">
-        <div class="container">
-            <div class="hero__content">
-                <div class="hero__content__inner" id='navConverter'>
-                    <h1 class="hero__title">Flame.Exchange</h1>
-                    <p class="hero__text">Flame.Exchange is a cryptocurrency exchange that focuses on privacy, security, low fees & more!</p>
-                    @if(!loggedIn){
-                    <a href="signup" class="button button__accent">Signup</a>
-                    <a href="login" class="button button__accent">Login</a>
-                    }
-                    @if(loggedIn){
-                    <a href="dashboard" class="button button__accent">Go to Dashboard</a>
-                    }
-                    <a href="https://discord.gg/fEYMcvX" class="button hero__button">Join Our Discord</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="hero__sub">
-    <span id="scrollToNext" class="scroll">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class='hero__sub__down' fill="currentColor" width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3z"/></svg>
-    </span>
-</div>
-<!-- Steps -->
-<div class="steps landing__section">
-    <div class="container">
-        <h2>What do we focus on?</h2>
-        <p><!--TODO--></p>
-    </div>
-    <div class="container">
-        <div class="steps__inner">
-            <div class="step">
-                <div class="step__media">
-                    <img src="https://cdn.flame.exchange/images/key.png" class="step__image">
-                </div>
-                <h4>Security</h4>
-                <p class="step__text">We do our very best to keep your funds safe. We also have a hot and cold wallet to prevent to big losses.</p>
-            </div>
-            <div class="step">
-                <div class="step__media">
-                    <img src="https://cdn.flame.exchange/images/privacy.png" class="step__image">
-                </div>
-                <h4>Privacy</h4>
-                <p class="step__text">We don't collect any of your data, so you can have privacy to the fullest.</p>
-            </div>
-            <div class="step">
-                <div class="step__media">
-                    <img src="https://cdn.flame.exchange/images/wallet.png" class="step__image">
-                </div>
-                <h4>Low fees</h4>
-                <p class="step__text">We keep our fees as low as we can, just to cover server costs and development fees.</p>
-            </div>
-        </div>
-    </div>
-</div>
+    		<!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="56x56" href="https://cdn.flame.exchange/images/fav-icon/icon.png">
 
-<!-- Call To Action -->
-<div class="cta cta--reverse">
-    <div class="container">
-        <div class="cta__inner">
-            <h2 class="cta__title">Get started now</h2>
-            <p class="cta__sub cta__sub--center">Sign up and start trading in seconds!</p>
-            <a href="signup" class="button button__accent">Sign Up</a>
-        </div>
+		<!-- Main style sheet -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.flame.exchange/css/style.css">
+		<!-- responsive style sheet -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.flame.exchange/css/responsive.css">
+		<!-- Color Css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.flame.exchange/css/color-one.css">
+        </head>
+        <body>
+        <!-- Hero unit -->
+<div class="main-page-wrapper">
+
+
+    <!-- ********************** Loading Transition ************************ -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
     </div>
-</div>
-<!-- Footer -->
-<div class="footer footer--dark">
-    <div class="container">
-        <div class="footer__inner">
-            <a href="index.html" class="footer__textLogo">Flame.Exchange</a>
-            <div class="footer__data">
-                <div class="footer__data__item">
-                    <div class="footer__row">
-                        Theme created by <a href="https://twitter.com/ninalimpi" target="_blank" class="footer__link">Katerina Limpitsouni</a>
-                    </div>
-                    <div class="footer__row">
-                    Code/design of theme by <a href="https://twitter.com/anges244" target="_blank" class="footer__link">Aggelos Gesoulis</a>
+
+    <div class="html-top-content">
+        <!-- ********************** Theme Top Banner & Header ************************ -->
+        <div class="theme-top-section">
+            <!-- ^^^^^^^^^^^^^^^^^ Theme Menu ^^^^^^^^^^^^^^^ -->
+            <header class="theme-main-menu">
+                <div class="container">
+                    <div class="menu-wrapper clearfix">
+                        <div class="logo"><a href="index.html">Flame.Exchange</a></div>
+                        
+                        <ul class="right-widget celarfix">
+                            <li>
+                            <!--<div id="polyglotLanguageSwitcher">
+                                    <form action="#">
+                                        <select id="polyglot-language-options">
+                                            <option id="en" value="en" selected>En</option>
+                                            <option id="fr" value="fr">Fr</option>
+                                            <option id="de" value="de">Ger</option>
+                                            <option id="it" value="it">It</option>
+                                            <option id="es" value="es">Sp</option>
+                                        </select>
+                                    </form>
+                                </div> -->
+                            </li>
+                            <li class="login-button"><a href="login">Login <i class="flaticon-right-thin"></i></a></li>
+                        </ul> <!-- /.right-widget --> 
+
+
+                        <!-- Navigation -->
+                        <nav class="navbar navbar-expand-lg" id="mega-menu-holder">
+                            <div class="container">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                  <i class="fa fa-bars" aria-hidden="true"></i>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarResponsive">
+                                  <ul class="navbar-nav">
+                                      <li class="nav-item">
+                                        <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+                                      </li>
+                                      <!--
+                                      <li class="nav-item">
+                                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                                      </li>
+                                      
+                                      <li class="nav-item">
+                                        <a class="nav-link js-scroll-trigger" href="#apps-review">Apps Review</a>
+                                      </li>
+                                    -->
+                                      <li class="nav-item">
+                                        <a class="nav-link js-scroll-trigger" href="#progress">Getting started</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link js-scroll-trigger" href="mailto:admin at flame.exchange">Contact us</a>
+                                      </li>
+                                  </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div> <!-- /.menu-wrapper -->
+                </div> <!-- /.container -->
+            </header> <!-- /.theme-main-menu -->
+            
+
+
+            <!-- ^^^^^^^^^^^^^^^^^ Theme Banner ^^^^^^^^^^^^^^^ -->
+            <div id="theme-banner" class="theme-banner-one">
+                <!--<img src="images/home/k.png" alt="" class="illustration">-->
+                <img src="https://cdn.flame.exchange/images/icon/1.png" alt="" class="icon-shape-one">
+                <img src="https://cdn.flame.exchange/images/icon/2.png" alt="" class="icon-shape-two">
+                <img src="https://cdn.flame.exchange/images/icon/3.png" alt="" class="icon-shape-three">
+                <!--<div class="round-shape-one"></div>-->
+                <div class="round-shape-two"><img src="https://cdn.flame.exchange/images/icon/4.png" alt=""></div>
+                <!--<div class="round-shape-three"></div>-->
+                <div class="container">
+                    <div class="main-text-wrapper">
+                        <h1>Lets talk<br>Cryptocurrency! <br> </h1>
+                        <p>Flame.Exchange is a cryptocurrency exchange that focuses on privacy, security, low fees & more!</p>
+                        <ul class="button-group clearfix">
+                            <li><a href="signup">Sign Up!</a></li>
+                            <li><a class="download-button" href="https://discord.gg/fEYMcvX">Join our Discord server</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="footer__data__item">
-                    <div class="footer__row">Special thanks to <a href="https://bitcoin.org" target="_blank" class="footer__link">Bitcoin</a> for being a thing
-                    </div>
-                    <div class="footer__row">Icons by <a href="https://flaticon.com" target="_blank" class="footer__link">Flaticon</a>
+
+                <div class="container">
+                    <div class="stock-market-price">
+                        <div id="market-rate">
+                            <div class="item">
+                                <div class="main-wrapper">
+                                     <div class="amount">$1,154,600</div>
+                                     <h6 class="title">Market Cap.</h6>
+                                     <div class="current-info range-down">
+                                         <i class="icon flaticon-down-caret"></i>
+                                         <span class="rate">-2.30</span>
+                                     </div>
+                                 </div>
+                            </div>
+                             <div class="item">
+                                <div class="main-wrapper">
+                                     <div class="amount">2,79,108</div>
+                                     <h6 class="title">Total Users</h6>
+                                     <div class="current-info range-up">
+                                         <i class="icon flaticon-up-carret"></i>
+                                         <span class="rate">+1.42</span>
+                                     </div>
+                                 </div>
+                            </div>
+                             <div class="item">
+                                <div class="main-wrapper">
+                                     <div class="amount">$7,421,210</div>
+                                     <h6 class="title">Trade Volume</h6>
+                                     <div class="current-info range-up">
+                                         <i class="icon flaticon-up-carret"></i>
+                                         <span class="rate">+2.30</span>
+                                     </div>
+                                 </div>
+                            </div>
+                             <div class="item">
+                                <div class="main-wrapper">
+                                     <div class="amount">0.0044559</div>
+                                     <h6 class="title">Exchange Rate</h6>
+                                     <div class="current-info range-down">
+                                         <i class="icon flaticon-down-caret"></i>
+                                         <span class="rate">-0.63</span>
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div> <!-- /.stock-market-price -->
+                </div>
+            </div> <!-- /.theme-banner-one -->
+        </div> <!-- /.theme-top-section -->
+        
+
+
+
+        <!--
+        =====================================================
+            Our Feature
+        =====================================================
+        -->
+        <div class="our-features-one" id="features">
+            <div class="container">
+                <div class="theme-title">
+                    <h2>The Cheapest & Best <span>Cryptocurrency exchange</span> <br>for the future</h2>
+                </div>
+                
+
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <div class="single-feature">
+                            <div class="icon-box">
+                                <img src="https://cdn.flame.exchange/images/icon/5.png" alt="" class="primary-icon">
+                            </div>
+                            <h3>Untraceable</h3>
+                            <p>Offchain transactions within the exchange. This provides cheap fees, and privacy.</p>
+                        </div> <!-- /.single-feature -->
+                    </div> <!-- /.col- -->
+                    <div class="col-md-4 col-xs-12">
+                        <div class="single-feature border-fix">
+                            <div class="icon-box">
+                                <img src="https://cdn.flame.exchange/images/icon/6.png" alt="" class="primary-icon">
+                            </div>
+                            <h3>We value your Privacy</h3>
+                            <p>We dont need any other personal infomation other than your email. We do not share your infomation with anyone!</p>
+                        </div> <!-- /.single-feature -->
+                    </div> <!-- /.col- -->
+                    <div class="col-md-4 col-xs-12">
+                        <div class="single-feature">
+                            <div class="icon-box">
+                                <img src="https://cdn.flame.exchange/images/icon/7.png" alt="" class="primary-icon">
+                            </div>
+                            <h3>Speed & Stability</h3>
+                            <p>In the crypto world, this is valued. We keep that, with almost 100% uptime, and DNS to provide good speeds around the world.</p>
+                        </div> <!-- /.single-feature -->
+                    </div> <!-- /.col- -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.our-features -->
+
+
+
+        <!--
+        =====================================================
+            Our Feature Two
+        =====================================================
+        -->
+        
+        <!--
+        =====================================================
+            Apps Overview
+        =====================================================
+        -->
+        <!--
+        <div class="apps-overview color-one" id="apps-review">
+            <div class="overlay-bg" style="background-image:url(images/home/bg2.png);">
+                <div class="container">
+                    <div class="inner-wrapper">
+                        <img src="images/home/s8.png" alt="" class="s8-mockup" data-aos="fade-down" data-aos-duration="2500">
+                        <img src="images/home/x.png" alt="" class="x-mockup" data-aos="fade-up" data-aos-duration="2500">
+                        <div class="row">
+                            <div class="col-lg-5 offset-lg-7">
+                                <div class="text">
+                                    <h3>don’t miss our apps</h3>
+                                    <h2>Mobile Application for Faster Access.</h2>
+                                    <h6>Now you can control dashboard from the mobile!</h6>
+                                    <p>Mining should be fair & easy! We dose not allow ASIC on our network. The development team is who commited to with keeping it that way.</p>
+                                    <ul class="button-group">
+                                        <li><a href="#"><i class="flaticon-apple"></i> Apple Store</a></li>
+                                        <li><a href="#"><img src="images/icon/playstore.png" alt=""> Google Play</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="footer__data__item">
-                <div class="footer__row">
-                    <a href="https://github.com/FlameExchange/Flame.Exchange" target="_blank" class="footer__link">GitHub</a>
+            </div> 
+        </div>  ->
+        
+        
+
+
+        <!--
+        =====================================================
+            Theme Counter
+        =====================================================
+        -->
+        <div class="theme-counter">
+            <div class="container">
+                <div class="bg-image">
+                    <div class="row theme-title">
+                        <div class="col-lg-6 order-lg-last">
+                            <h2><span>Fast</span> Growing Global Network.</h2>
+                        </div>
+                        <div class="col-lg-6 order-lg-first">
+                            <p>Our crypto community is growing fast and is friendly join us now!</p>
+                        </div>
+                    </div>
+
+                    <div class="counter-wrapper">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2 class="number"><span class="timer" data-from="0" data-to="720" data-speed="1200" data-refresh-interval="5">0</span>hours</h2>
+                                <p>Hours spent</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="number"><span class="timer" data-from="0" data-to="16" data-speed="1200" data-refresh-interval="5">0</span>Y</h2>
+                                <p>Years Expereince</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="number"><span class="timer" data-from="0" data-to="4" data-speed="1200" data-refresh-interval="5">0</span>coins</h2>
+                                <p>Current coins listed</p>
+                            </div>
+                        </div>
+                    </div> <!-- /.counter-wrapper -->
+                </div> <!-- /.bg-image -->
+            </div> <!-- /.container -->
+        </div> <!-- /.theme-counter -->
+
+
+        <!--
+        =====================================================
+            Our Work Progress
+        =====================================================
+        -->
+        <div class="our-work-progress bg-color" id="progress">
+            <div class="main-wrapper clearfix">
+                <div class="section-title-wrapper clearfix">
+                    <div class="theme-title">
+                        <div class="upper-heading"></div>
+                        <h2>Sign up, <span>its easy!</span></h2>
+                        <p>You can get started and start trading with just a few clicks! You dont need to provide anything other than your email to start trading!</p>
+                    </div>
+                </div> <!-- /.section-title-wrapper -->
+                <div class="progress-slider-wrapper">
+                    <div class="progress-slider">
+                        <div class="item">
+                            <div class="inner-block">
+                                <div class="icon"><img src="https://cdn.flame.exchange/images/icon/11.png" alt=""></div>
+                                <h3>Create Account</h3>
+                                <p>Click on the link to the left to signup</p>
+                                <div class="num">1</div>
+                            </div> <!-- /.inner-block -->
+                        </div>
+                        <div class="item">
+                            <div class="inner-block">
+                                <div class="icon"><img src="https://cdn.flame.exchange/images/icon/12.png" alt=""></div>
+                                <h3>Verify Account</h3>
+                                <p>You will receive a confirmation message in your email inbox.</p>
+                                <div class="num">2</div>
+                            </div> <!-- /.inner-block -->
+                        </div>
+                        <div class="item">
+                            <div class="inner-block">
+                                <div class="icon"><img src="https://cdn.flame.exchange/images/icon/13.png" alt=""></div>
+                                <h3>Deposit cryptocurrency</h3>
+                                <p>Go to the Funds tab and deposit cryptocurrency</p>
+                                <div class="num">3</div>
+                            </div> <!-- /.inner-block -->
+                        </div>
+                        <div class="item">
+                            <div class="inner-block">
+                                <div class="icon"><img src="https://cdn.flame.exchange/images/icon/11.png" alt=""></div>
+                                <h3>Start trading!</h3>
+                                <p>You can now buy and sell cryptocurrency easily.</p>
+                                <div class="num">4</div>
+                            </div> <!-- /.inner-block -->
+                        </div>
+                    </div> <!-- /.progress-slider -->
+                </div> <!-- /.progress-slider-wrapper -->
+            </div> <!-- /.main-wrapper -->
+        </div> <!-- /.our-work-progress -->
+
+
+
+
+
+        <!--
+        =====================================================
+            Testimonial Section
+        =====================================================
+        -->
+        <!--
+        <div class="testimonial-section">
+            <div class="container">
+                <div class="theme-title text-center">
+                    <div class="upper-heading">Testimonials</div>
+                    <h2>Our Users <span>Testimonials</span></h2>
                 </div>
-                <div>
-                    <a href="https://discord.gg/fEYMcvX" target="_blank" class="footer__link">Discord</a>
+
+                <div class="testimonial-slider">
+                    <div class="item">
+                        <div class="single-block clearfix">
+                            <div class="img-block"><img src="images/home/1.jpg" alt=""></div>
+                            <div class="text">
+                                <h3 class="name">Rashed Kabir</h3>
+                                <span>CEO, Creativegigs</span>
+                                <p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+                                <img src="images/home/sign.png" alt="" class="sign">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="single-block clearfix">
+                            <div class="img-block"><img src="images/home/2.jpg" alt=""></div>
+                            <div class="text">
+                                <h3 class="name">Jannatul Fa.</h3>
+                                <span>MD. Tourisom Group</span>
+                                <p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+                                <img src="images/home/sign.png" alt="" class="sign">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="single-block clearfix">
+                            <div class="img-block"><img src="images/home/1.jpg" alt=""></div>
+                            <div class="text">
+                                <h3 class="name">Rashed Kabir</h3>
+                                <span>CEO, Creativegigs</span>
+                                <p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+                                <img src="images/home/sign.png" alt="" class="sign">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="single-block clearfix">
+                            <div class="img-block"><img src="images/home/2.jpg" alt=""></div>
+                            <div class="text">
+                                <h3 class="name">Jannatul Fa.</h3>
+                                <span>MD. Tourisom Group</span>
+                                <p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+                                <img src="images/home/sign.png" alt="" class="sign">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="single-block clearfix">
+                            <div class="img-block"><img src="images/home/1.jpg" alt=""></div>
+                            <div class="text">
+                                <h3 class="name">Rashed Kabir</h3>
+                                <span>CEO, Creativegigs</span>
+                                <p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+                                <img src="images/home/sign.png" alt="" class="sign">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="single-block clearfix">
+                            <div class="img-block"><img src="images/home/2.jpg" alt=""></div>
+                            <div class="text">
+                                <h3 class="name">Jannatul Fa.</h3>
+                                <span>MD. Tourisom Group</span>
+                                <p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+                                <img src="images/home/sign.png" alt="" class="sign">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<script src='https://cdn.flame.exchange/js/app.min.js'></script>
+    -->
+
+
+
+        <!--
+        =====================================================
+            Partner Slider
+        =====================================================
+        -->
+        <!--
+        <div class="partner-section">
+            <div class="container">
+                <div class="partner-slider">
+                    <div class="item"><a href="#"><img src="images/logo/p-1.png" alt=""></a></div>
+                    <div class="item"><a href="#"><img src="images/logo/p-2.png" alt=""></a></div>
+                    <div class="item"><a href="#"><img src="images/logo/p-3.png" alt=""></a></div>
+                    <div class="item"><a href="#"><img src="images/logo/p-4.png" alt=""></a></div>
+                    <div class="item"><a href="#"><img src="images/logo/p-5.png" alt=""></a></div>
+                </div>
+            </div>
+        </div>-->
+
+
+
+
+        <!--
+        =====================================================
+            Footer 
+        =====================================================
+        -->
+        <footer class="theme-footer">
+            <div class="container">
+                <div class="inner-wrapper">
+                    <div class="top-footer-data-wrapper">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 footer-logo">
+                                <div class="logo"><a href="#">Flame.Exchange</a></div>
+                                <a href="#" class="email">admin at flame.exchange</a>
+                                <!--<a href="#" class="mobile">648-xxx-xxxx</a>-->
+                            </div> <!-- /.footer-logo -->
+                            <div class="col-lg-2 col-sm-6 footer-list">
+                                <h4 class="title">Quick Links</h4>
+                                <ul>
+                                    <li><a href="https://goo.gl/rtrFoK">What is Bitcoin?</a></li>
+                                    <li><a href="https://discord.gg/fEYMcvX">Discord Server</a></li>
+                                    <li><a href="https://goo.gl/CqqZ8D">Coin Listing forum</a></li>
+                                    <li><a href="https://goo.gl/TzziS1">Report Bug</a></li>
+                                    <!--<li><a href="#">Pricing</a></li>-->
+                                </ul>
+                            </div> <!-- /.footer-list -->
+                            <div class="col-lg-2 col-sm-6 footer-list">
+                                <h4 class="title">About Us</h4>
+                                <ul>
+                                    <!--<li><a href="">About AtomicLemon</a></li>-->
+                                    <li><a href="https://goo.gl/u7cS78">Jobs</a></li>
+                                    <li><a href="https://discord.gg/fEYMcvX">Team</a></li>
+                                    <!--<li><a href="#TESTIMONIALS">Testimonials</a></li>-->
+                                    <li><a href="https://discord.gg/fEYMcvX">Blog</a></li>
+                                </ul>
+                            </div> <!-- /.footer-list -->
+                            <div class="col-lg-3 col-sm-6 footer-list">
+                                <h4 class="title">Donate:</h4>
+                                <ul>
+                                    <li><a href="flamecoin:FGC9E68gYHoKMYeiji9UW532UQUmdDgRqB">FLA: FGC9E68gYHoKMYeiji9UW532UQUmdDgRqB</a></li>
+                                    <li><a href="bitcoin:1MG6ZQhDSpJxuXXKRqT1JHe37RVN7z3pg2">BTC: 1MG6ZQhDSpJxuXXKRqT1JHe37RVN7z3pg2</a></li>
+                                    <li><a href="litecoin:LTRhb9HVbzkJXj8dCtDvp4QGbjuaYaBWFP">LTC: LTRhb9HVbzkJXj8dCtDvp4QGbjuaYaBWFP</a></li>
+                                    <li><a href="#">ETH: 0x17efA11fB25E7DF02bCF8DC8c05582e93F958083</a></li>
+                                </ul>
+                            </div> <!-- /.footer-list -->
+                        </div> <!-- /.row -->
+                    </div> <!-- /.top-footer-data-wrapper -->
+
+                    <div class="bottom-footer clearfix">
+                        <p class="copyright">&copy; 2018-2019 <a href="#">Flame.Exchange</a> All Right Reserved</p>
+                        <ul>
+                            <!--
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            -->
+                        </ul>
+                    </div> <!-- /.bottom-footer -->
+                </div>
+            </div> <!-- /.container -->
+        </footer>
+
+    </div> <!-- /.html-top-content -->
+
+
+    
+    <!-- Scroll Top Button -->
+    <button class="scroll-top tran3s color-one-bg">
+        <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+    </button>
+
+		<!-- Js File_________________________________ -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    	<!-- jQuery -->
+		<script src="https://cdn.flame.exchange/vendor/jquery.2.2.3.min.js"></script>
+		<!-- Popper js -->
+		<script src="https://cdn.flame.exchange/vendor/popper.js/popper.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="https://cdn.flame.exchange/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Vendor js _________ -->
+		<!-- Plugin JavaScript -->
+    	<script src="https://cdn.flame.exchange/vendor/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Language Stitcher -->
+		<script src="https://cdn.flame.exchange/vendor/language-switcher/jquery.polyglot.language.switcher.js"></script>
+		<!-- js count to -->
+		<script src="https://cdn.flame.exchange/vendor/jquery.appear.js"></script>
+		<script src="https://cdn.flame.exchange/vendor/jquery.countTo.js"></script>
+		<!-- Fancybox -->
+		<script src="https://cdn.flame.exchange/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+		<!-- owl Carousel -->
+		<script src="https://cdn.flame.exchange/vendor/owl-carousel/owl.carousel.min.js"></script>
+		<!-- AOS js -->
+		<script src="https://cdn.flame.exchange/vendor/aos-next/dist/aos.js"></script>
+
+
+
+		<!-- Theme js -->
+		<script src="https://cdn.flame.exchange/js/theme.js"></script>
 
     <script id="big-tickers-template" type="text/x-handlebars-template">
         {{#each this}}

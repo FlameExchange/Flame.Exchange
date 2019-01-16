@@ -15,24 +15,8 @@
         } else {
             <title>@title - Flame.Exchange</title>
         }
-
-        <!-- bootstrap 3.0.2 -->
-        <link href="@routes.Assets.at("css/bootstrap.css")" rel="stylesheet" type="text/css" />
-        <!-- Bootstrap theme -->
-        <link href="@routes.Assets.at("css/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
-
-        <!-- non-theme styles -->
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/main.css")">
-
-        @styles
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="@routes.Assets.at("js/vendor/html5shiv.js")"></script>
-          <script src="@routes.Assets.at("js/vendor/respond.min.js")"></script>
-        <![endif]-->
         
+        @styles
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115410360-2"></script>
@@ -42,8 +26,8 @@
             gtag('js', new Date());
             gtag('config', 'UA-115410360-2');
         </script>
-    </head>
-    <body role="document">
+        </head>
+        <body>
 
         @content
 

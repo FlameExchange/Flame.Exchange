@@ -1,0 +1,19 @@
+.theme-top-section,.our-feature-two.dark-bg {background: #191eae;}
+.scroll-top,.theme-main-menu #mega-menu-holder .navbar-toggler {color: #191eae; }
+#mega-menu-holder ul> li> a:before,.theme-banner-two .main-text-wrapper .button-group li a:hover,.contact-section-dark form button {
+	background: #efd421;
+}
+#mega-menu-holder ul> li:hover> a, #mega-menu-holder ul> li> a.active,#mega-menu-holder ul.dropdown li:hover>a,
+.theme-title .upper-heading,.about-cryto .know-more a,.our-feature-two.dark-bg .text .learn-more,.apps-overview.color-two .inner-wrapper .text h3 {
+	color: #efd421;
+}
+.theme-banner-two .main-text-wrapper .button-group li a:hover {
+	border-color: #efd421;
+}
+
+#polyglotLanguageSwitcher ul.dropdown {box-shadow: 0px 0px 22.5px 7.5px rgb(36, 41, 179);}
+.theme-main-menu.color-white .right-widget .login-button a:hover {background: linear-gradient( 83deg, rgb(18,204,141) 0%, rgb(0,172,187) 100%);border-color: transparent;}
+.scroll-top {background: #fff;}
+.theme-title h2 {color: #fff;}
+::-webkit-scrollbar-thumb { background: #efd421;}
+.theme-main-menu.fixed {background: #11209f;}

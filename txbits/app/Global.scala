@@ -82,7 +82,8 @@ package object globals {
     "litecoin" -> Wallet.CryptoCurrency.LTC,
     "piratecash" -> Wallet.CryptoCurrency.PIRATE,
     "rebooted" -> Wallet.CryptoCurrency.BOOT,
-    "eazynode" -> Wallet.CryptoCurrency.EZY)
+    "eazynode" -> Wallet.CryptoCurrency.EZY,
+    "lytix" -> Wallet.CryptoCurrency.LYTX)
 
   val enabledCurrencies = currencies.filter(c =>
     Play.current.configuration.getBoolean("wallet.%s.enabled".format(c._1)).getOrElse(false))

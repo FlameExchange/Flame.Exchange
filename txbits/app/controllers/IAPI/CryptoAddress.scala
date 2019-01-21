@@ -104,7 +104,7 @@ object CryptoAddress {
   
     private val Lytix = new NetworkParameters {	
      id = ID_MAINNET	
-     port = 27071
+     port = 27073
      addressHeader = 19
      p2shHeader = 19
      acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	

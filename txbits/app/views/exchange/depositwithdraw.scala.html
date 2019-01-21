@@ -225,6 +225,15 @@
         <p>@{Messages("depositwithdraw.deposit.requiredConfirms")} {{required_confirms}} @Messages("depositwithdraw.deposit.confirms")</p>
     </script>
 
+    <script id="dw-fla-template" type="text/x-handlebars-template">
+        @drawer(collapsed = true) {
+            {{> crypto-deposit}}
+            {{> pending-d-crypto}}
+        } {
+            {{> crypto-withdraw-form}}
+            {{> pending-w-crypto}}
+        }
+    </script>
     <script id="dw-ltc-template" type="text/x-handlebars-template">
         @drawer(collapsed = true) {
             {{> crypto-deposit}}

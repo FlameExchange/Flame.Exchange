@@ -111,6 +111,16 @@ object CryptoAddress {
  
       val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
    }
+  
+    private val Flamecoin = new NetworkParameters {	
+     id = ID_MAINNET	
+     port = 9192
+     addressHeader = 35
+     p2shHeader = 35
+     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
+ 
+      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
+   }
  
 
   def isValid(address: String, currency: String, testnet: Boolean): Boolean = {
@@ -124,6 +134,7 @@ object CryptoAddress {
       case "PIRATE" => Piratecash
       case "EZY" => Eazynode
       case "LYTX" => Lytix
+      case "FLA" => Flamecoin
       case _ =>
         return false
     }

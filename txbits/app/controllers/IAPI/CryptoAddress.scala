@@ -121,6 +121,16 @@ object CryptoAddress {
  
       val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
    }
+  
+   private val Quark2 = new NetworkParameters {	
+     id = ID_MAINNET	
+     port = 12974
+     addressHeader = 58
+     p2shHeader = 9
+     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
+ 
+      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
+   }
  
 
   def isValid(address: String, currency: String, testnet: Boolean): Boolean = {
@@ -135,6 +145,7 @@ object CryptoAddress {
       case "EZY" => Eazynode
       case "LYTX" => Lytix
       case "FLA" => Flamecoin
+      case "QRK2" => Quark2
       case _ =>
         return false
     }

@@ -292,6 +292,15 @@
             {{> pending-w-crypto}}
         }
     </script>
+    <script id="dw-qrk2-template" type="text/x-handlebars-template">
+        @drawer(collapsed = true) {
+            {{> crypto-deposit}}
+            {{> pending-d-crypto}}
+        } {
+            {{> crypto-withdraw-form}}
+            {{> pending-w-crypto}}
+        }
+    </script>
 
     <script id="dw-cad-template" type="text/x-handlebars-template">
         @drawer(collapsed = true) {

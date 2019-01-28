@@ -74,8 +74,8 @@ object CryptoAddress {
   private val Rebooted = new NetworkParameters {
     id = ID_MAINNET
     port = 5858
-    addressHeader = 0
-    p2shHeader = 5
+    addressHeader = 60
+    p2shHeader = 61
     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
 
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET

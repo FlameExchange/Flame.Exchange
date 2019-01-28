@@ -404,6 +404,7 @@ object Wallet {
     val EZY = Value(4)
     val LYTX = Value(5)
     val FLA = Value(6)
+    val QRK2 = Value(7)
   }
   case class WalletParams(
     checkDelay: FiniteDuration,

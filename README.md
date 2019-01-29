@@ -31,3 +31,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -----------
 
 Copyright (C) 2014-2015  Viktor Stanchev & Kirk Zathey
+Copyright (C) 2018-2019  AtomicLemon & The Flame.Exchange developers

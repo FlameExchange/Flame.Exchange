@@ -112,25 +112,25 @@
                 <div class="container">
                     <div class="stock-market-price">
                         <div id="market-rate">
-                                
-                                <script id="big-tickers-template" type="text/x-handlebars-template">
-                                {{#each this}}
-                            <div class="item">
-                                <div class="main-wrapper">
-                                     <div class="amount">{{last}}</div>
-                                     <h6 class="title">Last price of {{base}}/{{counter}}</h6>
-                                     <div class="current-info range-down">
-                                            <i class="glyphicon glyphicon-{{icon}}" style="color: {{color}};">
-                                     </div>
-                                 </div>
-                            </div>
-                            {{/each}}
-                        </script>
-                             
+                            <div id="big-tickers"></div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script id="big-tickers-template" type="text/x-handlebars-template">
+            {{#each this}}
+        <div class="item">
+            <div class="main-wrapper">
+                 <div class="amount">{{last}}</div>
+                 <h6 class="title">Last price of {{base}}/{{counter}}</h6>
+                 <div class="current-info range-down">
+                        <i class="glyphicon glyphicon-{{icon}}" style="color: {{color}};">
+                 </div>
+             </div>
+        </div>
+        {{/each}}
+    </script>
         
 
 

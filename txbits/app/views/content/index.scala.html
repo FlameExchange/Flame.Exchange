@@ -49,7 +49,12 @@
                                     </form>
                                 </div> -->
                             </li>
+				@if(!loggedIn){
                             <li class="login-button"><a href="login">Login <i class="flaticon-right-thin"></i></a></li>
+				}
+				@if(loggedIn){
+				<li class="login-button"><a href="dashboard">Dashboard <i class="flaticon-right-thin"></i></a></li>
+				}
                         </ul> <!-- /.right-widget --> 
 
 
@@ -103,8 +108,14 @@
                         <h1>Lets Talk <br>Cryptocurrency! <br> </h1>
                         <p>Flame.Exchange is a cryptocurrency exchange that focuses on privacy, security, low fees & speed! <br> Get your coin listed for FREE! For more infomation, join our <a href="https://discord.gg/xU3Jer6">Discord server</a></p>
                         <ul class="button-group clearfix">
+				@if(!loggedIn){
                             <li><a href="signup">Sign Up!</a></li>
                             <li><a class="download-button" href="https://discord.gg/fEYMcvX">Join our Discord server</a></li>
+				}
+				@if(loggedIn){
+				<li><a href="signup">Go to dashboard</a></li>
+				<li><a class="download-button" href="https://discord.gg/fEYMcvX">Join our Discord server</a></li>
+				}
                         </ul>
                     </div>
                 </div>

@@ -102,7 +102,7 @@ class EngineModel(val db: String = "default") {
 
   def balance(uid: Option[Long], apiKey: Option[String]) = DB.withConnection(db) { implicit c =>
     SQL"""select currency, amount, coalesce(hold, 0) from balance($uid, $apiKey)"""().map(row =>
-      row[String]("currency") -> (row[BigDecimal]("amount"), row[BigDecimal]("hold"))
+      row[String]("currency") -> (row[BigDecimal]("amount"), row[BigDecimal]("coalesce"))
     ).toMap
   }
 

@@ -1,26 +1,19 @@
 @(title: String, scripts: Html = Html(""), styles: Html = Html(""), exchangeChrome:Boolean = false)(contentHtml: Html)(implicit request: RequestHeader, messages: Messages)
 
 @body = {
-    <div class="col-lg-12">
-        <div class="center-block modal-sm">
-            <div class="panel panel-default">
-                <div class="panel-heading">@title</div>
-                <div class="panel-body">
                 @contentHtml
-                </div>
-            </div>
-        </div>
-    </div>
+
 }
 
 @styles = {
-            <!-- bootstrap 3.0.2 -->
-            <link href="@routes.Assets.at("css/bootstrap.css")" rel="stylesheet" type="text/css" />
-            <!-- Bootstrap theme -->
-            <link href="@routes.Assets.at("css/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
-    
-            <!-- non-theme styles -->
-            <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/main.css")">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="assets/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href=assets/"assets/vendor/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="assets/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+
 }
 
 @if(exchangeChrome){

@@ -40,8 +40,8 @@ object CryptoAddress {
 
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
   }
-  
-   private val LitecoinTestnet = new NetworkParameters {
+
+  private val LitecoinTestnet = new NetworkParameters {
     id = ID_TESTNET
     port = 19333
     addressHeader = 111
@@ -80,68 +80,66 @@ object CryptoAddress {
 
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
   }
-  
-  private val Piratecash = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 11888	
-     addressHeader = 55	
-     p2shHeader = 55	
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
- 
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
- 
-  
-    private val Eazynode = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 9335
-     addressHeader = 33
-     p2shHeader = 2
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
- 
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
-  
-    private val Lytix = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 27073
-     addressHeader = 19
-     p2shHeader = 11
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
- 
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
-  
-    private val Flamecoin = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 9192
-     addressHeader = 35
-     p2shHeader = 35
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
- 
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
-  
-   private val Quark2 = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 12974
-     addressHeader = 58
-     p2shHeader = 9
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
- 
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
-  
-     private val Crowd = new NetworkParameters {	
-     id = ID_MAINNET	
-     port = 11998
-     addressHeader = 28
-     p2shHeader = 28
-     acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)	
- 
-      val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET	
-   }
- 
+
+  private val Piratecash = new NetworkParameters {
+    id = ID_MAINNET
+    port = 11888
+    addressHeader = 55
+    p2shHeader = 55
+    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
+
+    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
+  }
+
+  private val Eazynode = new NetworkParameters {
+    id = ID_MAINNET
+    port = 9335
+    addressHeader = 33
+    p2shHeader = 2
+    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
+
+    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
+  }
+
+  private val Lytix = new NetworkParameters {
+    id = ID_MAINNET
+    port = 27073
+    addressHeader = 19
+    p2shHeader = 11
+    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
+
+    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
+  }
+
+  private val Flamecoin = new NetworkParameters {
+    id = ID_MAINNET
+    port = 9192
+    addressHeader = 35
+    p2shHeader = 35
+    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
+
+    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
+  }
+
+  private val Quark2 = new NetworkParameters {
+    id = ID_MAINNET
+    port = 12974
+    addressHeader = 58
+    p2shHeader = 9
+    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
+
+    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
+  }
+
+  private val Crowd = new NetworkParameters {
+    id = ID_MAINNET
+    port = 11998
+    addressHeader = 28
+    p2shHeader = 28
+    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
+
+    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
+  }
 
   def isValid(address: String, currency: String, testnet: Boolean): Boolean = {
     val network = currency match {

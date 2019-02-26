@@ -11,62 +11,284 @@
 
 @auth._chrome( Messages("auth.signup.title"), scripts ) {
 
-    @request.flash.get("error").map { msg =>
+	  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="/assets/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="/assets/assets/vendor/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="/assets/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+<div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+      <div class="container px-4">
+        <a class="navbar-brand" href="https://flame.exchange">
+          <img src="/assets/assets/img/brand/white.png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-main">
+          <!-- Collapse header -->
+          <div class="navbar-collapse-header d-md-none">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="https://flame.exchange">
+                  <img src="../assets/img/brand/blue.png">
+                </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Navbar items -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="https://flame.exchange/dashboard">
+                <i class="ni ni-planet"></i>
+                <span class="nav-link-inner--text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="https://flame.exchange/signup">
+                <i class="ni ni-circle-08"></i>
+                <span class="nav-link-inner--text">Register</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="https://flame.exchange/login">
+                <i class="ni ni-key-25"></i>
+                <span class="nav-link-inner--text">Login</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="https://flame.exchange/account">
+                <i class="ni ni-single-02"></i>
+                <span class="nav-link-inner--text">Profile</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8">
+      <div class="container">
+        <div class="header-body text-center mb-7">
+          <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+              <h1 class="text-white">Welcome!</h1>
+              <p class="text-lead text-light">Finish creating your Flame.Exchange account!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+        <!-- Page content -->
+    <div class="container mt--8 pb-5">
+      <!-- Table -->
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <div class="text-muted"><p id="Status"></p></div>
+              </div>
+               <form action="@controllers.routes.Registration.handleSignUp(token).absoluteURL(UsernamePasswordProvider.sslEnabled)" autocomplete= "off" method="POST" class="password-form" data-password-length="@controllers.PasswordChange.passwordMinLen">
+			   @CSRF.formField
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+					@helper.inputPassword(
+					signUpForm("password.password1"),
+					'_label -> Messages("auth.signup.password1"),
+					'class -> "form-control",
+					'placeholder -> "Password",
+					'onchange -> "checkPass();",
+					'onkeydown -> "checkPass();",
+					'onpropertychange -> "checkPass();",
+					'onkeypress -> "checkPass();"
+					)
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+					@helper.inputPassword(
+					signUpForm("password.password2"),
+					'_label -> Messages("auth.signup.password2"),
+					'_error -> signUpForm.error("password"),
+					'class -> "form-control",
+					'placeholder -> "Password again",
+					'onchange -> "checkPass();",
+					'onkeydown -> "checkPass();",
+					'onpropertychange -> "checkPass();",
+					'onkeypress -> "checkPass();"
+					)
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+					@textarea(
+					signUpForm("pgp"),
+					'_label -> Messages("auth.signup.pgp"),
+					'_error -> signUpForm.error("pgp"),
+					'class -> "form-control",
+					'placeholder -> "PGP code (Not needed)",
+					'onchange -> "checkPass();",
+					'onkeydown -> "checkPass();",
+					'onpropertychange -> "checkPass();",
+					'onkeypress -> "checkPass();"
+					)
+                  </div>
+                </div>
+                <p class="well well-sm">@Messages("text.password.advice")</p>
+				<p><b>@Messages("auth.password.crack_time"):</b> <span id="crack_time">...</span></p>
+
+				<!-- Start Checkboxes -->
+
+				 <div class="row my-4">
+                  <div class="col-12">
+				  
+
+				  <!-- START MAILING LIST ACCEPT -->
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" id="mailingList1" type="checkbox" value="true" name="mailinglist">
+                      <label class="custom-control-label" for="mailingList1">
+                        <span class="text-muted">Receive updates about new features and changes to Flame.Exchange via e-mail</span>
+                      </label>
+                    </div>
+					<!-- END MAILING LIST ACCEPT -->
+
+
+				  <!-- START TOS ACCEPT -->
+				  <textarea class="form-control" rows="11" disabled>@Messages("auth.signup.tos.body")</textarea>
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" type="checkbox" id="accepttos" onchange="checkPass();">
+                      <label class="custom-control-label" for="accepttos">
+                        <span class="text-muted">I agree with the Terms & Conditions</span>
+                      </label>
+                    </div>
+					<!-- END TOS ACCEPT -->
+
+                  </div>
+                </div>
+
+				    @request.flash.get("error").map { msg =>
         <div class="alert alert-danger">
             @Messages(msg)
         </div>
     }
 
-    <form action="@controllers.routes.Registration.handleSignUp(token).absoluteURL(UsernamePasswordProvider.sslEnabled)"
-          autocomplete= "off"
-          method="POST"
-          class="password-form"
-          data-password-length="@controllers.PasswordChange.passwordMinLen"
-    >
-        @CSRF.formField
+				<!-- End Checkboxes -->
 
-        <p class="well well-sm">@Messages("text.password.advice")</p>
-
-        @*TODO: make this prettier*@
-        <p><b>@Messages("auth.password.crack_time"):</b> <span id="crack_time">...</span></p>
-
-        @helper.inputPassword(
-            signUpForm("password.password1"),
-            '_label -> Messages("auth.signup.password1"),
-            'class -> "form-control"
-        )
-
-        @helper.inputPassword(
-            signUpForm("password.password2"),
-            '_label -> Messages("auth.signup.password2"),
-            '_error -> signUpForm.error("password"),
-            'class -> "form-control"
-        )
-
-        @textarea(
-            signUpForm("pgp"),
-            '_label -> Messages("auth.signup.pgp"),
-            '_error -> signUpForm.error("pgp"),
-            'class -> "form-control"
-        )
-        <p class="help-block">@Messages("pgp.purpose")</p>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4" name="CreateAccount" id="CreateAccount" disabled="disabled">Create account</button>
+                </div>
 
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="true" name="mailinglist"> @Messages("auth.signup.mailinglist")
-            </label>
+				<script>
+
+
+function checkPass()
+{
+    var pass1 = document.getElementById('password_password1');
+    var pass2 = document.getElementById('password_password2');
+    var message = document.getElementById('Status');
+	var chk = document.getElementById('accepttos');
+ 	
+    if(pass1.value.length < 12)
+    {
+        message.innerHTML = "Password field must have more than 12 characters"
+    }
+    if(pass1.value.length > 12)
+    {
+        message.innerHTML = "Password field has enough characters."
+
+
+		if(pass1.value == pass2.value && pass1.value.length > 12)
+		{
+		message.innerHTML = "Passwords match"
+		var submitButton = document.getElementById('CreateAccount');
+
+		if (chk.checked == true && pass1.value == pass2.value && pass1.value.length > 12 && pass2.value.length > 12) {
+        submitButton.disabled = false;
+		}
+		if (chk.checked == false) {
+        submitButton.disabled = true;
+		document.getElementById("Status").innerHTML = "You must agree to the terms and conditions.";
+		}
+
+		}
+		else
+		{
+		message.innerHTML = "Passwords don't match"
+		document.getElementById('CreateAccount').disabled = true;
+		}
+
+
+		}
+	}  
+
+</script>
+              </form>
+            </div>
+          </div>
         </div>
-
-        <p><b>@Messages("auth.signup.tos.title")</b></p>
-        <textarea class="form-control" rows="11" disabled>@Messages("auth.signup.tos.body")</textarea>
-
-        <div class="checkbox">
-            <label id="accepttos-label">
-                <input type="checkbox" value="true" name="accepttos" id="accepttos"> @Messages("auth.signup.tos.accept")
-            </label>
+      </div>
+    </div>
+  </div>
+ <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2018-2019 <a href="https://flame.exchange" class="font-weight-bold ml-1" target="_blank">Flame.Exchange</a>
+          </div>
         </div>
-
-        <button type="submit" class="btn btn-primary">@Messages("auth.signup.createAccount")</button>
-    </form>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="https://discord.gg/xU3Jer6" class="nav-link" target="_blank">Discord Server</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.blockchain.com/btc/payment_request?address=1LemonR7fZvco7Hg36ZNjy2MKKjhRgUwji&message=Donate+to+Flame.Exchange+:)" class="nav-link" target="_blank">Donate</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://goo.gl/CqqZ8D" class="nav-link" target="_blank">Coin listing form</a>
+            </li>
+			<li class="nav-item">
+              <a href="https://goo.gl/TzziS1" class="nav-link" target="_blank">Report a Bug</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://goo.gl/rtrFoK" class="nav-link" target="_blank">What is Bitcoin?</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Argon JS -->
+  <script src="../assets/js/argon.js?v=1.0.0"></script>
 }

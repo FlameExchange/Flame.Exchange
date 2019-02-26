@@ -10,31 +10,180 @@
 
 @auth._chrome( Messages("auth.signup.title"), scripts ) {
 
-    @request.flash.get("error").map { msg =>
-    <div class="alert alert-danger">
-        @Messages(msg)
-    </div>
-    }
 
-    <form id="signup-form" action="@controllers.routes.Registration.handleStartSignUp().absoluteURL(UsernamePasswordProvider.sslEnabled)"
-          autocomplete="off" method="post"
-    >
-        @CSRF.formField
+
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+      <div class="container px-4">
+        <a class="navbar-brand" href="https://flame.exchange">
+          <p>Flame.Exchange</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-main">
+          <!-- Collapse header -->
+          <div class="navbar-collapse-header d-md-none">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="../index.html">
+                  <img src="../assets/img/brand/blue.png">
+                </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Navbar items -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="dashboard">
+                <i class="ni ni-planet"></i>
+                <span class="nav-link-inner--text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="signup">
+                <i class="ni ni-circle-08"></i>
+                <span class="nav-link-inner--text">Register</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="login">
+                <i class="ni ni-key-25"></i>
+                <span class="nav-link-inner--text">Login</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="account">
+                <i class="ni ni-single-02"></i>
+                <span class="nav-link-inner--text">Profile</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8">
+      <div class="container">
+        <div class="header-body text-center mb-7">
+          <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+              <h1 class="text-white">Register to Flame.Exchange!</h1>
+              <p class="text-lead text-light">Sign up now to start trading!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container mt--8 pb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+          <div class="card bg-secondary shadow border-0">
+
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Enter your email:</small>
+              </div>
+			      <form id="signup-form" action="@controllers.routes.Registration.handleStartSignUp().absoluteURL(UsernamePasswordProvider.sslEnabled)" autocomplete="off" method="post">
+			  <!--
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Name" type="text">
+                  </div>
+                </div>
+				-->
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+					        @CSRF.formField
         @helper.inputText(
         startForm(Registration.Email),
         '_label -> Messages("auth.signup.email1"),
-        'class -> "form-control"
-        )
-
-        <div class="form-group" id="email2_field">
-            <label class="control-label" for="email2">@Messages("auth.signup.email2")</label>
-            <div class="controls">
-                <input type="text" id="email2" name="email2" value="" class="form-control"/>
-                <span id="email2_error" class="help-block" style="display:none">@Messages("auth.signup.errors.emailsdonotmatch")</span>
+        'class -> "form-control",
+		'placeholder -> "Email")
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input type="text" id="email2" name="email2" value="" placeholder="Email again"  class="form-control"/>
+                  </div>
+                </div>
+				    @request.flash.get("success").map { msg =>
+					<div class="text-muted font-italic"><small>Thanks for signing up! <span class="text-success font-weight-700">Please check your email.</span></small></div>
+					}
+					@request.flash.get("error").map { msg =>
+					<div class="text-muted font-italic"><small>Error: @msg</span></small></div>
+					}
+                <div class="text-muted font-italic"><span id="email2_error" class="help-block" style="display:none">@Messages("auth.signup.errors.emailsdonotmatch")</span></div>
+                <div class="row my-4">
+                  <div class="col-12">
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">Create account</button>
+                </div>
+              </form>
             </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-5 text-right">
+              <a href="login" class="text-light"><small>Have an account? Log in.</small></a>
+            </div>
+          </div>
         </div>
-
-        <button type="submit" class="btn btn-primary">@Messages("auth.signup.createAccount")</button>
-
-    </form>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2018-2019 <a href="https://flame.exchange" class="font-weight-bold ml-1" target="_blank">Flame.Exchange</a>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="https://discord.gg/xU3Jer6" class="nav-link" target="_blank">Discord Server</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.blockchain.com/btc/payment_request?address=1LemonR7fZvco7Hg36ZNjy2MKKjhRgUwji&message=Donate+to+Flame.Exchange+:)" class="nav-link" target="_blank">Donate</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://goo.gl/CqqZ8D" class="nav-link" target="_blank">Coin listing form</a>
+            </li>
+			<li class="nav-item">
+              <a href="https://goo.gl/TzziS1" class="nav-link" target="_blank">Report a Bug</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://goo.gl/rtrFoK" class="nav-link" target="_blank">What is Bitcoin?</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 }

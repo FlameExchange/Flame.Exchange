@@ -399,7 +399,7 @@ object Wallet {
     type CryptoCurrency = Value
     val BTC = Value(0)
     val LTC = Value(1)
-    val PIRATE =  Value(2)
+    val PIRATE = Value(2)
     val BOOT = Value(3)
     val EZY = Value(4)
     val LYTX = Value(5)

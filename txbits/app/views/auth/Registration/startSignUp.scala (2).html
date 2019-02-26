@@ -1,0 +1,39 @@
+@(startForm:Form[controllers.Registration.StartRegistrationInfo])(implicit request: RequestHeader, messages: Messages)
+@import helper._
+@import securesocial.core.UsernamePasswordProvider
+@import play.api.Play.current
+@implicitFieldConstructor = @{ FieldConstructor(auth.inputFieldConstructor.f(_)(messages)) }
+
+@scripts = {
+    <script src="@routes.Assets.at("js/signup.js")"></script>
+}
+
+@auth._chrome( Messages("auth.signup.title"), scripts ) {
+
+    @request.flash.get("error").map { msg =>
+    <div class="alert alert-danger">
+        @Messages(msg)
+    </div>
+    }
+
+    <form id="signup-form" action="@controllers.routes.Registration.handleStartSignUp().absoluteURL(UsernamePasswordProvider.sslEnabled)"
+          autocomplete="off" method="post">
+        @CSRF.formField
+        @helper.inputText(
+        startForm(Registration.Email),
+        '_label -> Messages("auth.signup.email1"),
+        'class -> "form-control"
+        )
+
+        <div class="form-group" id="email2_field">
+            <label class="control-label" for="email2">@Messages("auth.signup.email2")</label>
+            <div class="controls">
+                <input type="text" id="email2" name="email2" value="" class="form-control"/>
+                <span id="email2_error" class="help-block" style="display:none">@Messages("auth.signup.errors.emailsdonotmatch")</span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">@Messages("auth.signup.createAccount")</button>
+
+    </form>
+}

@@ -114,11 +114,7 @@
 					signUpForm("password.password1"),
 					'_label -> Messages("auth.signup.password1"),
 					'class -> "form-control",
-					'placeholder -> "Password",
-					'onchange -> "checkPass();",
-					'onkeydown -> "checkPass();",
-					'onpropertychange -> "checkPass();",
-					'onkeypress -> "checkPass();"
+					'placeholder -> "Password"
 					)
                   </div>
                 </div>
@@ -132,11 +128,7 @@
 					'_label -> Messages("auth.signup.password2"),
 					'_error -> signUpForm.error("password"),
 					'class -> "form-control",
-					'placeholder -> "Password again",
-					'onchange -> "checkPass();",
-					'onkeydown -> "checkPass();",
-					'onpropertychange -> "checkPass();",
-					'onkeypress -> "checkPass();"
+					'placeholder -> "Password again"
 					)
                   </div>
                 </div>
@@ -150,11 +142,7 @@
 					'_label -> Messages("auth.signup.pgp"),
 					'_error -> signUpForm.error("pgp"),
 					'class -> "form-control",
-					'placeholder -> "PGP code (Not needed)",
-					'onchange -> "checkPass();",
-					'onkeydown -> "checkPass();",
-					'onpropertychange -> "checkPass();",
-					'onkeypress -> "checkPass();"
+					'placeholder -> "PGP code (Not needed)"
 					)
                   </div>
                 </div>
@@ -180,7 +168,7 @@
 				  <!-- START TOS ACCEPT -->
 				  <textarea class="form-control" rows="11" disabled>@Messages("auth.signup.tos.body")</textarea>
                     <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input class="custom-control-input" type="checkbox" id="accepttos" onchange="checkPass();">
+                      <input class="custom-control-input" type="checkbox" id="accepttos" name="accepttos">
                       <label class="custom-control-label" for="accepttos">
                         <span class="text-muted">I agree with the Terms & Conditions</span>
                       </label>
@@ -202,51 +190,6 @@
                   <button type="submit" class="btn btn-primary mt-4" name="CreateAccount" id="CreateAccount" disabled="disabled">Create account</button>
                 </div>
 
-
-				<script>
-
-
-function checkPass()
-{
-    var pass1 = document.getElementById('password_password1');
-    var pass2 = document.getElementById('password_password2');
-    var message = document.getElementById('Status');
-	var chk = document.getElementById('accepttos');
- 	
-    if(pass1.value.length < 12)
-    {
-        message.innerHTML = "Password field must have more than 12 characters"
-    }
-    if(pass1.value.length > 12)
-    {
-        message.innerHTML = "Password field has enough characters."
-
-
-		if(pass1.value == pass2.value && pass1.value.length > 12)
-		{
-		message.innerHTML = "Passwords match"
-		var submitButton = document.getElementById('CreateAccount');
-
-		if (chk.checked == true && pass1.value == pass2.value && pass1.value.length > 12 && pass2.value.length > 12) {
-        submitButton.disabled = false;
-		}
-		if (chk.checked == false) {
-        submitButton.disabled = true;
-		document.getElementById("Status").innerHTML = "You must agree to the terms and conditions.";
-		}
-
-		}
-		else
-		{
-		message.innerHTML = "Passwords don't match"
-		document.getElementById('CreateAccount').disabled = true;
-		}
-
-
-		}
-	}  
-
-</script>
               </form>
             </div>
           </div>

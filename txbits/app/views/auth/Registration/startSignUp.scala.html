@@ -127,6 +127,7 @@
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
                     <input type="text" id="email2" name="email2" value="" placeholder="Email again"  class="form-control"/>
+					<span id="email2_error" class="help-block" style="display:none">@Messages("auth.signup.errors.emailsdonotmatch")</span>
                   </div>
                 </div>
 				    @request.flash.get("success").map { msg =>

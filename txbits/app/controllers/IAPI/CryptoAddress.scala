@@ -150,6 +150,16 @@ object CryptoAddress {
 
     val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
   }
+  
+  private val Slicecoin = new NetworkParameters {
+    id = ID_MAINNET
+    port = 40010
+    addressHeader = 125
+    p2shHeader = 63
+    acceptableAddressCodes = Array[Int](addressHeader, p2shHeader)
+
+    val getPaymentProtocolId: String = PAYMENT_PROTOCOL_ID_MAINNET
+  }
 
   def isValid(address: String, currency: String, testnet: Boolean): Boolean = {
     val network = currency match {
@@ -166,6 +176,7 @@ object CryptoAddress {
       case "QRK2" => Quark2
       case "CRCL" => Crowd
       case "BFN" => Floranode
+      case "SLC" => Slicecoin
       case _ =>
         return false
     }

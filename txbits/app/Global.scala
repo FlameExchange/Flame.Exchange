@@ -87,7 +87,8 @@ package object globals {
     "flamecoin" -> Wallet.CryptoCurrency.FLA,
     "quark2" -> Wallet.CryptoCurrency.QRK2,
     "crowd" -> Wallet.CryptoCurrency.CRCL,
-    "floranode" -> Wallet.CryptoCurrency.BFN)
+    "floranode" -> Wallet.CryptoCurrency.BFN,
+    "slice" -> Wallet.CryptoCurrency.SLC)
 
   val enabledCurrencies = currencies.filter(c =>
     Play.current.configuration.getBoolean("wallet.%s.enabled".format(c._1)).getOrElse(false))

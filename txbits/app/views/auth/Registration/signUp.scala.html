@@ -101,7 +101,7 @@
           <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <div class="text-muted"><p id="Status"></p></div>
+                <div class="text-muted"><p id="Status">Please note Password must be more than 12 characters.</p></div>
               </div>
                <form action="@controllers.routes.Registration.handleSignUp(token).absoluteURL(UsernamePasswordProvider.sslEnabled)" autocomplete= "off" method="POST" class="password-form" data-password-length="@controllers.PasswordChange.passwordMinLen">
 			   @CSRF.formField

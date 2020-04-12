@@ -1,4 +1,4 @@
-# Flame.Exchange
+# Flame.Exchange - [This software is deprecated]
 
 An open source Bitcoin and crypto currency exchange.
 
